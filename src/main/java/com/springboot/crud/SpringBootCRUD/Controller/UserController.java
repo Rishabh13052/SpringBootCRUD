@@ -34,13 +34,18 @@ public class UserController {
 
     @GetMapping("/getAllUser")
     public List<User> getAllUser(){
-
         return userService.getAllUser();
     }
 
     @PutMapping("/updateUser/{userId}")
     public User updateUser(@PathVariable("userId") String userId, @RequestBody User user){
-
         return userService.updateUser(userId, user);
     }
+
+    @GetMapping("/getUserByName")
+    public List<User> getUserByName(){
+        return userService.getUserByName();
+    }
+
+
 }
