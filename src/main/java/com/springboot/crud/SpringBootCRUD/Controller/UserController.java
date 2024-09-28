@@ -14,10 +14,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/sample")
-    public String sample(){
-        return "This is Sample";
-    }
     @GetMapping("/getUser/{userId}")
     public User getUser(@PathVariable("userId") String userId){
         User getUser=userService.getUser(userId);
@@ -26,6 +22,7 @@ public class UserController {
 
     @PostMapping("/addUser")
     public User addUser(@RequestBody  User user){
+
         return userService.addUser(user);
     }
 
@@ -42,7 +39,13 @@ public class UserController {
 
     @PutMapping("/updateUser/{userId}")
     public User updateUser(@PathVariable("userId") String userId, @RequestBody User user){
-
         return userService.updateUser(userId, user);
     }
+
+    @GetMapping("/getUserByName")
+    public List<User> getUserByName(){
+        return userService.getUserByName();
+    }
+
+
 }
