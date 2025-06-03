@@ -21,5 +21,4 @@ public interface RiderRepository extends JpaRepository<Rider, Long> {
     @Transactional
     @Query( value = "UPDATE Rider r set r.riderpt = :riderPt where r.rider_code = :riderCode", nativeQuery = true)
     int getUpdatedListOfRider(@Param("riderCode") String riderCode, @Param("riderPt") Long riderPt);
-
 }
