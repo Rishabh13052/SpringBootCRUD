@@ -14,6 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
@@ -24,7 +25,8 @@ public class TempService {
 
     String[] listOfRiderCode = {"L188B01", "L177A06", "L191A02", "L191D02"};
 
-    public List<Rider> getUpdatedRidersList() {
+    
+    public List<Rider> getUpdatedRidersList(){
         List<Rider> riderList = riderService.getAllRider()
                 .stream()
                 .filter(rider -> !rider.getRiderCode().equalsIgnoreCase("L188A01") && !rider.getRiderCode().equalsIgnoreCase("L191A01"))
@@ -33,11 +35,19 @@ public class TempService {
         return riderList;
     }
 
+
     public void printUpdatedList() {
 
         List<RiderDto> listOfRiderList = new ArrayList<>();
 
         riderService.getAllRider()
+
+    public void printUpdatedList(){
+
+        List<RiderDto> listOfRiderList = new ArrayList<>();
+
+                riderService.getAllRider()
+
                 .stream()
                 .filter(rider -> !rider.getRiderCode().equalsIgnoreCase("L188B01") && !rider.getRiderCode().equalsIgnoreCase("L177A05"))
                 .forEach(rider -> {
