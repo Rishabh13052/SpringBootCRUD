@@ -25,7 +25,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.core.RowMapper;
 
-@Configuration
+
+//@Configuration
+
 @EnableBatchProcessing
 public class BatchConfiguration {
 
