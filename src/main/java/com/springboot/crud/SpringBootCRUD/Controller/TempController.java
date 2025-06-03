@@ -1,5 +1,6 @@
 package com.springboot.crud.SpringBootCRUD.Controller;
 
+import com.springboot.crud.SpringBootCRUD.DTO.UserRiderDto;
 import com.springboot.crud.SpringBootCRUD.Entity.Rider;
 import com.springboot.crud.SpringBootCRUD.ServiceImpl.TempService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ public class TempController {
 
     @Autowired
     private TempService tempService;
+
     @GetMapping("/getUpdatedRiderList")
     public List<Rider> getUpdatedRiderList(){
         return tempService.getUpdatedRidersList();
@@ -23,5 +25,15 @@ public class TempController {
     @GetMapping("/printUpdatedList")
     public void printUpdatedList(){
         tempService.printUpdatedList();
+    }
+
+    @GetMapping("/printUpdatedList1")
+    public void printUpdatedList1(){
+        tempService.printUpdatedList1();
+    }
+
+    @GetMapping("/printUpdatedList2")
+    public UserRiderDto printUpdatedList2(){
+        return tempService.getUserRiderDto();
     }
 }

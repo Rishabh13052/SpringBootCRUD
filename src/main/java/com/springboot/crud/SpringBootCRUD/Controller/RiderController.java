@@ -1,5 +1,7 @@
 package com.springboot.crud.SpringBootCRUD.Controller;
 
+import com.springboot.crud.SpringBootCRUD.DTO.OutRiderDto;
+import com.springboot.crud.SpringBootCRUD.DTO.RiderDto;
 import com.springboot.crud.SpringBootCRUD.Entity.Rider;
 import com.springboot.crud.SpringBootCRUD.Service.RiderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +46,16 @@ public class RiderController {
     @GetMapping("/getUpdatedRiderList")
     public List<Rider> getUpdatedRiderList(){
         return riderService.getUpdatedRidersList();
+    }
+
+    @GetMapping("/getOutRider/{riderPt}")
+    public List<OutRiderDto> getOutRiderDto(@PathVariable Long riderPt){
+        return riderService.getListOfRider(riderPt);
+    }
+
+    @PutMapping("/updateRider/code/{riderCode}/pt/{riderPt}")
+    public List<RiderDto> getUpdatedRider(@PathVariable String riderCode, @PathVariable Long riderPt){
+        return riderService.getUpdatedRiderDTO(riderCode, riderPt);
     }
 
 }

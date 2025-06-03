@@ -1,5 +1,7 @@
 package com.springboot.crud.SpringBootCRUD.Service;
 
+import com.springboot.crud.SpringBootCRUD.DTO.OutRiderDto;
+import com.springboot.crud.SpringBootCRUD.DTO.RiderDto;
 import com.springboot.crud.SpringBootCRUD.Entity.Rider;
 
 import java.util.List;
@@ -13,4 +15,8 @@ public interface RiderService {
     List<Rider> getAllRider();
 
     List<Rider> getUpdatedRidersList();
+
+    List<OutRiderDto> getListOfRider(Long riderPt);
+    List<RiderDto> getUpdatedRiderDTO(String riderCode, Long riderPt);
 }
+

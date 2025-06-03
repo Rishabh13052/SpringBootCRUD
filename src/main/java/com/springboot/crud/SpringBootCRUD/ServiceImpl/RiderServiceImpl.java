@@ -1,5 +1,7 @@
 package com.springboot.crud.SpringBootCRUD.ServiceImpl;
 
+import com.springboot.crud.SpringBootCRUD.DTO.OutRiderDto;
+import com.springboot.crud.SpringBootCRUD.DTO.RiderDto;
 import com.springboot.crud.SpringBootCRUD.Entity.Rider;
 import com.springboot.crud.SpringBootCRUD.Repository.RiderRepository;
 import com.springboot.crud.SpringBootCRUD.Service.RiderService;
@@ -70,6 +72,25 @@ public class RiderServiceImpl implements RiderService {
                 .collect(Collectors.toList());
         log.info("Rider List :: {}", riderList);
         return riderList;
+    }
+
+    @Override
+    public List<OutRiderDto> getListOfRider(Long riderPt) {
+        List<OutRiderDto> listOfOutRiders = riderRepository.getListOfRider(riderPt);
+        log.info("listOfOutRiders are :: {}",listOfOutRiders);
+        listOfOutRiders.stream().forEach(
+                outRiderDto -> {
+                    this.getUpdatedRiderDTO(outRiderDto.getRiderCode(),(outRiderDto.getRiderPT() +1));
+                }
+        );
+        return listOfOutRiders;
+    }
+
+    public List<RiderDto> getUpdatedRiderDTO(String riderCode, Long riderPt){
+        List<RiderDto> listOfUpdatedRider = null;
+        int result = riderRepository.getUpdatedListOfRider(riderCode, riderPt);
+        log.info("result is :: {}",result);
+        return listOfUpdatedRider;
     }
 
 }
